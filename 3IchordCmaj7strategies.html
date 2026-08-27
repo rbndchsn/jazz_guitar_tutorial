@@ -337,8 +337,127 @@
     .card, .panel { padding: 18px 16px 16px; }
   }
 </style>
+<style>
+  /* ---------- persistent site bar (self-contained; all classes prefixed sitebar-) ---------- */
+
+  .sitebar {
+    position: sticky; top: 0; z-index: 200;
+    margin: 0 -20px;
+    padding: 0 20px;
+    height: 54px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: var(--ground);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sitebar-home {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink); min-width: 0;
+  }
+
+  .sitebar-logo { flex: none; display: block; color: var(--ink); }
+
+  .sitebar-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 40;
+    font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em;
+    line-height: 1.2;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .sitebar-title em { font-style: normal; color: var(--accent); }
+
+  .sitebar-burger {
+    flex: none; width: 40px; height: 40px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: none; border: 1px solid transparent; border-radius: 2px;
+    cursor: pointer; padding: 0;
+  }
+
+  .sitebar-burger:hover { border-color: var(--rule); background: var(--surface); }
+
+  .sitebar-burger span {
+    display: block; width: 18px; height: 2px;
+    background: var(--ink); border-radius: 1px;
+  }
+
+  .sitebar-menu {
+    position: absolute; top: calc(100% + 8px); right: 20px;
+    display: none; flex-direction: column; min-width: 250px;
+    background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 3px;
+    box-shadow: 0 12px 30px -16px #00000059;
+    padding: 6px;
+  }
+
+  .sitebar-menu.sitebar-open { display: flex; }
+
+  .sitebar-menu a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.03em;
+    text-decoration: none; color: var(--ink);
+    padding: 10px 12px; border-radius: 2px;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  }
+
+  .sitebar-menu a .sitebar-deg {
+    color: var(--ink-faint);
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  .sitebar-menu a:hover { background: var(--accent); color: var(--dot-ink); }
+  .sitebar-menu a:hover .sitebar-deg { color: var(--dot-ink); opacity: 0.75; }
+
+  .sitebar-menu a[aria-current="page"] { color: var(--accent); }
+  .sitebar-menu a[aria-current="page"]:hover { color: var(--dot-ink); }
+</style>
 </head>
 <body>
+<header class="sitebar">
+  <a class="sitebar-home" href="index.html" aria-label="Getting Out of ii–V–I — home">
+    <svg class="sitebar-logo" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+      <g stroke="currentColor" stroke-opacity="0.85">
+        <line x1="4" y1="4" x2="18" y2="4" stroke-width="2"/>
+        <line x1="4" y1="10" x2="18" y2="10" stroke-width="1"/>
+        <line x1="4" y1="16" x2="18" y2="16" stroke-width="1"/>
+        <line x1="4" y1="4" x2="4" y2="16" stroke-width="1"/>
+        <line x1="11" y1="4" x2="11" y2="16" stroke-width="1"/>
+        <line x1="18" y1="4" x2="18" y2="16" stroke-width="1"/>
+      </g>
+      <circle cx="11" cy="13" r="3.2" fill="var(--accent)"/>
+    </svg>
+    <span class="sitebar-title">Getting Out of <em>ii–V–I</em></span>
+  </a>
+  <button class="sitebar-burger" id="sitebar-toggle" type="button" aria-expanded="false" aria-controls="sitebar-menu" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="sitebar-menu" id="sitebar-menu" aria-label="Site navigation">
+    <a href="index.html">Home <span class="sitebar-deg">index</span></a>
+    <a href="1iichordDm7substitutions.html">Dm7 substitutions <span class="sitebar-deg">ii</span></a>
+    <a href="2VchordG7substitutions.html">G7 substitutions <span class="sitebar-deg">V</span></a>
+    <a href="3IchordCmaj7strategies.html">Cmaj7 strategies <span class="sitebar-deg">I</span></a>
+  </nav>
+</header>
+<script>
+(function () {
+  var toggle = document.getElementById('sitebar-toggle');
+  var menu = document.getElementById('sitebar-menu');
+  function close() { menu.classList.remove('sitebar-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('sitebar-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function (e) { if (!menu.contains(e.target)) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  var page = location.pathname.split('/').pop() || 'index.html';
+  var links = menu.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].getAttribute('href') === page) links[i].setAttribute('aria-current', 'page');
+  }
+})();
+</script>
+
 <div class="wrap">
 
   <header class="masthead">
