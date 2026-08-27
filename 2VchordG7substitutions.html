@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Twelve Ways Out of G7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground:      #E7E5DF;
+    --surface:     #F4F3EE;
+    --surface-2:   #DEDBD3;
+    --ink:         #1A1714;
+    --ink-soft:    #5E574E;
+    --ink-faint:   #8C8479;
+    --rule:        #C9C5BA;
+    --accent:      #7C2F2A;
+    --accent-tint: #7C2F2A18;
+    --nickel:      #2C5A61;
+    --brass:       #8A6418;
+    --dot-ink:     #F4F3EE;
+    --grid:        #6F675C;
+    --nut:         #1A1714;
+    --shadow:      0 1px 0 #FFFFFF80, 0 2px 14px -8px #1A171433;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #131210;
+      --surface:     #1D1B18;
+      --surface-2:   #262320;
+      --ink:         #EDEAE3;
+      --ink-soft:    #A79E92;
+      --ink-faint:   #7A7267;
+      --rule:        #35312B;
+      --accent:      #DD8078;
+      --accent-tint: #DD807820;
+      --nickel:      #79B7BD;
+      --brass:       #D2A244;
+      --dot-ink:     #131210;
+      --grid:        #6A6156;
+      --nut:         #B9B0A2;
+      --shadow:      0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #131210;
+    --surface:     #1D1B18;
+    --surface-2:   #262320;
+    --ink:         #EDEAE3;
+    --ink-soft:    #A79E92;
+    --ink-faint:   #7A7267;
+    --rule:        #35312B;
+    --accent:      #DD8078;
+    --accent-tint: #DD807820;
+    --nickel:      #79B7BD;
+    --brass:       #D2A244;
+    --dot-ink:     #131210;
+    --grid:        #6A6156;
+    --nut:         #B9B0A2;
+    --shadow:      0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    padding: 72px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--nickel);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-variation-settings: "opsz" 120;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0;
+    max-width: 16ch;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .standfirst {
+    max-width: 62ch;
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- legend ---------- */
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+  }
+
+  .swatch {
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--dot-ink);
+    flex: none;
+  }
+  .swatch.root  { background: var(--accent); }
+  .swatch.tone  { background: var(--grid); }
+  .swatch.mute  {
+    background: none; color: var(--ink-faint);
+    font-size: 13px; line-height: 1;
+  }
+
+  /* ---------- family bands ---------- */
+
+  .band {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .band-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 20px;
+    row-gap: 10px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .band-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 60;
+    font-weight: 600;
+    font-size: 1.55rem;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    margin: 0;
+  }
+
+  .band-note {
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 68ch;
+    margin: 0;
+  }
+
+  .distance {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    justify-self: end;
+  }
+
+  .pips { display: flex; gap: 3px; }
+
+  .pip {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    border: 1px solid var(--ink-faint);
+  }
+  .pip.on { background: var(--accent); border-color: var(--accent); }
+
+  /* ---------- cards ---------- */
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .card.wide { grid-column: 1 / -1; }
+
+  .card-head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .chord-name {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 96;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+
+  .equals {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--nickel);
+    margin: 0;
+  }
+
+  .why {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .why b { color: var(--ink); font-weight: 600; }
+
+  .grips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    padding-top: 4px;
+    border-top: 1px solid var(--rule);
+    overflow-x: auto;
+  }
+
+  .grip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding-top: 14px;
+  }
+
+  .grip-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  .grip-label b {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-size: 12px;
+  }
+
+  .pitches {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- closing ---------- */
+
+  .coda {
+    border-top: 2px solid var(--ink);
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .coda h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 60;
+    font-weight: 600;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .coda p {
+    margin: 0;
+    max-width: 68ch;
+    color: var(--ink-soft);
+  }
+
+  .coda strong { color: var(--ink); font-weight: 600; }
+
+  .tuning {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 620px) {
+    .band-head { grid-template-columns: 1fr; }
+    .distance { justify-self: start; }
+  }
+
+  @media (max-width: 480px) {
+    .masthead { padding-top: 48px; }
+    .card { padding: 18px 16px 16px; }
+    .grips { gap: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">ii–V–I in C · substitutes for the V chord</p>
+    <h1>Twelve Ways Out of <em>G7</em></h1>
+    <p class="standfirst">Everything here can replace <strong>G7</strong> in a ii–V–I in C, arranged by how far it travels from the original. Each one is shown twice: a compact <strong>comping grip</strong> for when a bass player has the root covered, and a <strong>full grip</strong> with the root in the bass for solo playing. Dots are labelled with scale degrees, not fingers.</p>
+    <div class="legend">
+      <span class="legend-item"><span class="swatch root">R</span> root of the chord</span>
+      <span class="legend-item"><span class="swatch tone">♭7</span> degree above that root</span>
+      <span class="legend-item"><span class="swatch mute">×</span> string muted</span>
+      <span class="legend-item"><span class="swatch mute" style="font-size:11px">○</span> played open</span>
+      <span class="legend-item"><span class="pitches">5fr</span> starting fret</span>
+    </div>
+  </header>
+
+  <main id="bands"></main>
+
+  <section class="coda">
+    <h2>Before you commit to one</h2>
+    <p>The first band goes under any melody the tune already has — those voicings only add notes to G7. The alterations are pickier: <strong>G7♭9</strong> kills a melodic A, <strong>G7alt</strong> fights a held D or E, and both sus voicings clash with a melody sitting on B.</p>
+    <p>The tritone subs need the bass player in on it, or at least not playing a G. If you are unsure, <strong>D♭7♯11</strong> is the one to reach for — it contains the G, so it survives being contradicted from below.</p>
+    <p>Everything transposes by sliding: this whole sheet in F is the same shapes moved down two frets.</p>
+    <p class="tuning">Standard tuning · E A D G B E · low string at left</p>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // shape: strings low-E → high-E. null = muted, 0 = open, n = fret.
+  // degs:  scale degree of each sounding note, relative to that chord's own root.
+  var DATA = [
+    {
+      id: "extend",
+      title: "Extend it without leaving it",
+      distance: 1,
+      note: "The V is the one chord in the progression where almost anything is legal — it is leaving anyway. Start by adding notes rather than replacing them. All three of these still read unambiguously as G7.",
+      cards: [
+        {
+          name: "G13",
+          equals: "the working default",
+          why: "Drop the fifth, put the <b>13th</b> on top. When a chart says G7 and you are in a combo, this is usually what everyone means.",
+          grips: [
+            { label: "Comping grip", sub: "♭7 · 3 · 13", shape: [null,null,3,4,5,null], degs: [null,null,"♭7","3","13"] },
+            { label: "With the root", sub: "G13", shape: [3,null,3,4,5,null], degs: ["R",null,"♭7","3","13"] }
+          ]
+        },
+        {
+          name: "G9",
+          equals: "= Bm7♭5 without the root",
+          why: "Add the 9th. Strip the root and what is left is <b>Bm7♭5</b> — which is why the ii chord of G minor keeps turning up inside V-chord voicings.",
+          grips: [
+            { label: "Comping grip", sub: "Bm7♭5", shape: [null,null,3,4,3,5], degs: [null,null,"♭7","3","5","9"] },
+            { label: "With the root", sub: "G9", shape: [3,null,3,4,3,5], degs: ["R",null,"♭7","3","5","9"] }
+          ]
+        },
+        {
+          name: "G7♭9",
+          equals: "= B°7 without the root",
+          sp: "b",
+          why: "Flatten the 9th and the rootless grip becomes a <b>diminished 7th</b>. B°7, D°7, F°7 and A♭°7 are the same four notes, so every dim7 shape you already know is a G7♭9.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "B°7", shape: [null,null,3,4,3,4], degs: [null,null,"♭7","3","5","♭9"] },
+            { sp: "b", label: "With the root", sub: "G7♭9", shape: [3,null,3,4,3,4], degs: ["R",null,"♭7","3","5","♭9"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "suspend",
+      title: "Suspend the third",
+      distance: 2,
+      note: "Take the B out and the leading tone stops pulling. Both of these postpone the resolution — comp one for the first half of the bar and let the third arrive late, or never resolve it at all.",
+      cards: [
+        {
+          name: "G9sus4",
+          equals: "= F triad over G  ·  or Dm7 over G",
+          why: "No third, so nothing has committed yet. Think of it as an <b>F triad</b> sitting on a G, and you can find it anywhere on the neck.",
+          grips: [
+            { label: "Comping grip", sub: "F triad", shape: [null,null,10,10,10,null], degs: [null,null,"11","♭7","9"] },
+            { label: "With the root", sub: "G9sus4", shape: [null,10,10,10,10,null], degs: [null,"R","11","♭7","9"] }
+          ]
+        },
+        {
+          name: "G7sus♭9",
+          equals: "= A♭maj7 over G",
+          why: "Phrygian rather than mixolydian. The darkest chord on this sheet that still functions as a plain V — and the one that most says <b>1980s piano trio</b>.",
+          grips: [
+            { sp: "b", startAt: 3, label: "Comping grip", sub: "A♭maj7", shape: [null,null,5,5,4,4], degs: [null,null,"R","11","♭13","♭9"] },
+            { sp: "b", label: "With the root", sub: "G7sus♭9", shape: [3,null,5,5,4,4], degs: ["R",null,"R","11","♭13","♭9"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "alter",
+      title: "Alter it",
+      distance: 3,
+      note: "Now bend the notes that are not guide tones. B and F stay put — they are what make it a G7 at all. Everything else is negotiable, and the further you bend it, the harder the chord pulls toward C.",
+      cards: [
+        {
+          name: "G7♯11",
+          equals: "Lydian dominant",
+          why: "Raise the 11th. An <b>A major triad</b> over G says the same thing in one grab — 9, ♯11 and 13 stacked together.",
+          grips: [
+            { label: "Comping grip", sub: "♭7 · 3 · ♯11", shape: [null,null,3,4,2,0], degs: [null,null,"♭7","3","♯11","13"] },
+            { label: "With the root", sub: "G13♯11", shape: [3,null,3,4,2,0], degs: ["R",null,"♭7","3","♯11","13"] }
+          ]
+        },
+        {
+          name: "G7♯9",
+          equals: "B♭ against B natural",
+          why: "The one everybody knows. It resolves so well because the two notes fighting each other go opposite ways: <b>B♭ falls to A, B rises to C</b>.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "3 · ♭7 · ♯9", shape: [null,null,9,10,11,null], degs: [null,null,"3","♭7","♯9"] },
+            { sp: "b", label: "With the root", sub: "G7♯9", shape: [null,10,9,10,11,null], degs: [null,"R","3","♭7","♯9"] }
+          ]
+        },
+        {
+          name: "G7alt",
+          equals: "♯9 and ♭13 together",
+          why: "Every note that can be altered has been. This is the altered scale compressed into four notes, and it will not sit still — play it late in the bar and land on Cmaj7 immediately.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "rootless", shape: [null,null,9,10,11,11], degs: [null,null,"3","♭7","♯9","♭13"] },
+            { sp: "b", label: "With the root", sub: "G7♯9♭13", shape: [null,10,9,10,11,11], degs: [null,"R","3","♭7","♯9","♭13"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "tritone",
+      title: "Move the root a tritone",
+      distance: 4,
+      note: "D♭7 shares B and F with G7 — the tritone that defines them both. Swap the root and the bass walks D♭ down to C by half step instead of falling a fifth.",
+      cards: [
+        {
+          name: "D♭13",
+          equals: "tritone sub of G7",
+          sp: "b",
+          why: "Set this comping grip beside <b>G7♯9</b> two cards up: it is the same diagram. Only the bass note decides which of the two chords you are playing.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "♭7 · 3 · 13", shape: [null,null,9,10,11,null], degs: [null,null,"♭7","3","13"] },
+            { sp: "b", label: "With the root", sub: "D♭13", shape: [9,null,9,10,11,null], degs: ["R",null,"♭7","3","13"] }
+          ]
+        },
+        {
+          name: "D♭7♯11",
+          equals: "the sub that keeps the G",
+          why: "The ♯11 of D♭ is <b>G</b> — the root you just threw out. That is why this one sounds like both chords at once, and why it is the safest tritone sub to drop under an unfamiliar melody.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "♭7 · 3 · ♯11", shape: [null,null,9,10,8,null], degs: [null,null,"♭7","3","♯11"] },
+            { sp: "b", label: "With the root", sub: "D♭7♯11", shape: [9,null,9,10,8,null], degs: ["R",null,"♭7","3","♯11"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "elsewhere",
+      title: "Get to C some other way",
+      distance: 5,
+      note: "Two cadences that reach the tonic with no G anywhere in them. Both turn up often enough in standards that a rhythm section will follow you into either one without being told.",
+      cards: [
+        {
+          name: "B♭7",
+          equals: "the backdoor  ·  ♭VII7 → I",
+          why: "Borrowed from C minor. The <b>A♭ falls to G</b> and the D holds still, so it lands on Cmaj7 as convincingly as a real V. Approach it from Fm7 and the whole cadence rewrites itself.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "♭7 · 3 · 5", shape: [null,null,6,7,6,null], degs: [null,null,"♭7","3","5"] },
+            { sp: "b", label: "With the root", sub: "B♭7", shape: [6,null,6,7,6,null], degs: ["R",null,"♭7","3","5"] }
+          ]
+        },
+        {
+          name: "A♭m7 – D♭7",
+          equals: "the ii–V of the tritone sub",
+          wide: true,
+          why: "Fill the whole G7 bar with the ii–V belonging to D♭. Two chords where there was one, and the bass line becomes <b>A♭ – D♭ – C</b>, arriving on the tonic by half step from above.",
+          grips: [
+            { sp: "b", label: "Comping grip", sub: "A♭m7", shape: [null,null,4,4,4,null], degs: [null,null,"♭7","♭3","5"] },
+            { sp: "b", label: "With the root", sub: "A♭m7", shape: [4,null,4,4,4,null], degs: ["R",null,"♭7","♭3","5"] },
+            { sp: "b", label: "Comping grip", sub: "D♭7", shape: [null,null,6,4,6,null], degs: [null,null,"5","♭7","3"] },
+            { sp: "b", label: "With the root", sub: "D♭7", shape: [null,4,6,4,6,null], degs: [null,"R","5","♭7","3"] }
+          ]
+        }
+      ]
+    }
+  ];
+
+  /* ---------- fretboard maths (also used to print pitch names) ---------- */
+
+  var SHARP = ["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
+  var FLAT  = ["C","D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"];
+  var OPEN = [4, 9, 2, 7, 11, 4]; // E A D G B E as pitch classes
+
+  function pitchesOf(shape, sp) {
+    var set = sp === "b" ? FLAT : SHARP;
+    var out = [];
+    for (var i = 0; i < 6; i++) {
+      if (shape[i] === null || shape[i] === undefined) continue;
+      out.push(set[(OPEN[i] + shape[i]) % 12]);
+    }
+    return out;
+  }
+
+  /* ---------- diagram ---------- */
+
+  var SW = 20, FH = 24, FRETS = 5;
+  var PAD_L = 30, PAD_R = 10, PAD_T = 23, PAD_B = 4;
+  var W = PAD_L + SW * 5 + PAD_R;
+  var H = PAD_T + FH * FRETS + PAD_B;
+
+  function svgEl(name, attrs) {
+    var e = document.createElementNS("http://www.w3.org/2000/svg", name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function diagram(shape, degs, startAt) {
+    var fretted = [];
+    for (var i = 0; i < 6; i++) {
+      if (typeof shape[i] === "number" && shape[i] > 0) fretted.push(shape[i]);
+    }
+    var minF = Math.min.apply(null, fretted);
+    var maxF = Math.max.apply(null, fretted);
+    var showNut = minF <= 2 && maxF <= FRETS;
+    var start = showNut ? 1 : minF;
+    if (startAt && !showNut) start = startAt;
+
+    var svg = svgEl("svg", {
+      width: W, height: H, viewBox: "0 0 " + W + " " + H,
+      role: "img", "aria-hidden": "true"
+    });
+
+    var x = function (s) { return PAD_L + s * SW; };
+    var y = function (row) { return PAD_T + row * FH; };
+
+    // fret lines
+    for (var f = 0; f <= FRETS; f++) {
+      svg.appendChild(svgEl("line", {
+        x1: x(0), y1: y(f), x2: x(5), y2: y(f),
+        stroke: "var(--grid)", "stroke-width": 1, "stroke-opacity": 0.55
+      }));
+    }
+    // nut
+    if (showNut) {
+      svg.appendChild(svgEl("line", {
+        x1: x(0) - 0.5, y1: y(0), x2: x(5) + 0.5, y2: y(0),
+        stroke: "var(--nut)", "stroke-width": 4, "stroke-linecap": "square"
+      }));
+    } else {
+      var pos = svgEl("text", {
+        x: x(0) - 5, y: y(0) + FH / 2 + 3.5,
+        "text-anchor": "end", fill: "var(--ink-faint)",
+        "font-family": "'IBM Plex Mono', monospace", "font-size": 9.5
+      });
+      pos.textContent = start + "fr";
+      svg.appendChild(pos);
+    }
+
+    // strings
+    for (var s = 0; s < 6; s++) {
+      svg.appendChild(svgEl("line", {
+        x1: x(s), y1: y(0), x2: x(s), y2: y(FRETS),
+        stroke: "var(--grid)", "stroke-width": s === 0 ? 1.5 : 1, "stroke-opacity": 0.7
+      }));
+    }
+
+    // markers above the grid + dots
+    for (var i2 = 0; i2 < 6; i2++) {
+      var v = shape[i2];
+      var deg = degs[i2] || "";
+      var isRoot = deg === "R";
+
+      if (v === null || v === undefined) {
+        var mute = svgEl("text", {
+          x: x(i2), y: PAD_T - 7, "text-anchor": "middle",
+          fill: "var(--ink-faint)", "font-family": "'IBM Plex Mono', monospace",
+          "font-size": 12
+        });
+        mute.textContent = "×";
+        svg.appendChild(mute);
+        continue;
+      }
+
+      if (v === 0) {
+        svg.appendChild(svgEl("circle", {
+          cx: x(i2), cy: PAD_T - 11.5, r: 6.4,
+          fill: isRoot ? "var(--accent)" : "none",
+          stroke: isRoot ? "var(--accent)" : "var(--grid)", "stroke-width": 1.4
+        }));
+        var oLab = svgEl("text", {
+          x: x(i2), y: PAD_T - 11.5, "text-anchor": "middle",
+          fill: isRoot ? "var(--dot-ink)" : "var(--ink-soft)",
+          "font-family": "'IBM Plex Mono', monospace",
+          "font-size": deg.length > 1 ? 6.4 : 7.4,
+          "font-weight": 600, "dominant-baseline": "central"
+        });
+        oLab.textContent = deg;
+        svg.appendChild(oLab);
+        continue;
+      }
+
+      var row = v - start;
+      var cy = y(row) + FH / 2;
+      svg.appendChild(svgEl("circle", {
+        cx: x(i2), cy: cy, r: 8.8,
+        fill: isRoot ? "var(--accent)" : "var(--grid)"
+      }));
+      var lab = svgEl("text", {
+        x: x(i2), y: cy, "text-anchor": "middle",
+        "dominant-baseline": "central",
+        fill: "var(--dot-ink)",
+        "font-family": "'IBM Plex Mono', monospace",
+        "font-size": deg.length > 2 ? 7.4 : 8.4, "font-weight": 600
+      });
+      lab.textContent = deg;
+      svg.appendChild(lab);
+    }
+
+    return svg;
+  }
+
+  /* ---------- render ---------- */
+
+  function el(tag, cls, html) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html !== undefined) e.innerHTML = html;
+    return e;
+  }
+
+  var root = document.getElementById("bands");
+  var bandsWrap = el("div");
+  bandsWrap.style.display = "flex";
+  bandsWrap.style.flexDirection = "column";
+  bandsWrap.style.gap = "56px";
+
+  DATA.forEach(function (band) {
+    var section = el("section", "band");
+
+    var head = el("div", "band-head");
+    head.appendChild(el("h2", null, band.title));
+
+    var dist = el("div", "distance");
+    dist.appendChild(el("span", null, "distance from G7"));
+    var pips = el("span", "pips");
+    for (var p = 1; p <= 5; p++) {
+      pips.appendChild(el("span", "pip" + (p <= band.distance ? " on" : "")));
+    }
+    dist.appendChild(pips);
+    head.appendChild(dist);
+    head.appendChild(el("p", "band-note", band.note));
+    section.appendChild(head);
+
+    var cards = el("div", "cards");
+
+    band.cards.forEach(function (card) {
+      var c = el("article", "card" + (card.wide ? " wide" : ""));
+      var ch = el("div", "card-head");
+      ch.appendChild(el("h3", "chord-name", card.name));
+      ch.appendChild(el("p", "equals", card.equals));
+      c.appendChild(ch);
+      c.appendChild(el("p", "why", card.why));
+
+      var grips = el("div", "grips");
+      card.grips.forEach(function (g) {
+        var wrapG = el("div", "grip");
+        wrapG.appendChild(diagram(g.shape, g.degs, g.startAt));
+        wrapG.appendChild(el("p", "grip-label", "<b>" + g.sub + "</b>" + g.label));
+        wrapG.appendChild(el("p", "pitches", pitchesOf(g.shape, g.sp).join(" ")));
+        grips.appendChild(wrapG);
+      });
+      c.appendChild(grips);
+      cards.appendChild(c);
+    });
+
+    section.appendChild(cards);
+    bandsWrap.appendChild(section);
+  });
+
+  root.appendChild(bandsWrap);
+})();
+</script>
+</body>
+</html>

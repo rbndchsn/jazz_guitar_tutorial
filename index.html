@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Getting Out of ii–V–I</title>
+<meta name="description" content="A guitar reference for substituting every chord in a ii–V–I, worked in the key of C major. Three sheets, ninety-eight chord diagrams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground:      #E7E5DF;
+    --surface:     #F4F3EE;
+    --ink:         #1A1714;
+    --ink-soft:    #5E574E;
+    --ink-faint:   #8C8479;
+    --rule:        #C9C5BA;
+    --accent:      #7C2F2A;
+    --nickel:      #2C5A61;
+    --dot-ink:     #F4F3EE;
+    --grid:        #6F675C;
+    --nut:         #1A1714;
+    --shadow:      0 1px 0 #FFFFFF80, 0 2px 14px -8px #1A171433;
+    --lift:        0 1px 0 #FFFFFF80, 0 10px 28px -14px #1A171455;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #131210;
+      --surface:     #1D1B18;
+      --ink:         #EDEAE3;
+      --ink-soft:    #A79E92;
+      --ink-faint:   #7A7267;
+      --rule:        #35312B;
+      --accent:      #DD8078;
+      --nickel:      #79B7BD;
+      --dot-ink:     #131210;
+      --grid:        #6A6156;
+      --nut:         #B9B0A2;
+      --shadow:      0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+      --lift:        0 1px 0 #FFFFFF10, 0 12px 30px -16px #000000;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #131210;
+    --surface:     #1D1B18;
+    --ink:         #EDEAE3;
+    --ink-soft:    #A79E92;
+    --ink-faint:   #7A7267;
+    --rule:        #35312B;
+    --accent:      #DD8078;
+    --nickel:      #79B7BD;
+    --dot-ink:     #131210;
+    --grid:        #6A6156;
+    --nut:         #B9B0A2;
+    --shadow:      0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+    --lift:        0 1px 0 #FFFFFF10, 0 12px 30px -16px #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead { padding: 84px 0 0; display: flex; flex-direction: column; gap: 22px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--nickel); margin: 0;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-variation-settings: "opsz" 140;
+    font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.6rem);
+    line-height: 1.0; letter-spacing: -0.025em; text-wrap: balance;
+    margin: 0; max-width: 14ch;
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .standfirst { max-width: 60ch; font-size: 1.1rem; color: var(--ink-soft); margin: 0; }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- progression strip ---------- */
+
+  .prog {
+    display: flex; align-items: stretch; align-self: flex-start;
+    border: 1px solid var(--ink-faint); border-radius: 2px;
+    overflow: hidden; background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .prog a {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    text-decoration: none; color: var(--ink);
+    padding: 13px 22px 12px;
+    border-right: 1px solid var(--ink-faint);
+    display: flex; flex-direction: column; gap: 4px;
+    transition: background 140ms ease, color 140ms ease;
+  }
+  .prog a:last-child { border-right: 0; }
+  .prog a:hover { background: var(--accent); color: var(--dot-ink); }
+  .prog a:hover .deg { color: var(--dot-ink); opacity: 0.75; }
+
+  .prog .deg {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-faint);
+    transition: color 140ms ease;
+  }
+
+  /* ---------- purpose ---------- */
+
+  .purpose {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 26px 36px;
+    padding-top: 26px; border-top: 2px solid var(--ink);
+  }
+
+  .purpose p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+  .purpose p b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- sheet rows ---------- */
+
+  .sheets { display: flex; flex-direction: column; gap: 22px; }
+
+  .sheets-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    padding-bottom: 14px; border-bottom: 5px solid var(--ink);
+  }
+
+  .sheets-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 90;
+    font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1.05; letter-spacing: -0.018em; margin: 0;
+  }
+
+  .count {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .sheet {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 28px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 26px 26px 24px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+  }
+
+  .sheet:hover { box-shadow: var(--lift); transform: translateY(-2px); border-color: var(--ink-faint); }
+  .sheet:hover .go { color: var(--accent); }
+  .sheet:hover .go .arrow { transform: translateX(4px); }
+
+  .sheet-fig { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+
+  .fig-name {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--ink); margin: 0;
+  }
+
+  .fig-role {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 0;
+  }
+
+  .sheet-body { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+
+  .sheet-eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--accent); margin: 0;
+  }
+
+  .sheet h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 80;
+    font-weight: 600; font-size: 1.6rem; line-height: 1.1;
+    letter-spacing: -0.015em; margin: 0; text-wrap: balance;
+  }
+
+  .sheet p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; max-width: 62ch; }
+  .sheet p b { color: var(--ink); font-weight: 600; }
+
+  .contents {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    list-style: none; margin: 2px 0 0; padding: 0;
+  }
+
+  .contents li {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 3px 9px;
+  }
+
+  .go {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--nickel); margin: 4px 0 0;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 160ms ease;
+  }
+
+  .go .arrow { display: inline-block; transition: transform 160ms ease; }
+
+  /* ---------- coda ---------- */
+
+  .coda { border-top: 5px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+
+  .coda h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 60;
+    font-weight: 600; font-size: 1.35rem; line-height: 1.2; margin: 0;
+  }
+
+  .coda p { margin: 0; max-width: 66ch; color: var(--ink-soft); }
+  .coda strong { color: var(--ink); font-weight: 600; }
+  .coda a { color: var(--nickel); text-underline-offset: 3px; }
+
+  .tuning {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; color: var(--ink-faint); letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    .masthead { padding-top: 52px; }
+    .sheet { grid-template-columns: 1fr; padding: 20px 18px 18px; }
+    .sheet-fig { align-items: flex-start; }
+    .prog { align-self: stretch; }
+    .prog a { flex: 1; padding: 12px 14px; align-items: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .sheet:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">jazz guitar · worked in the key of C</p>
+    <h1>Getting Out of <em>ii–V–I</em></h1>
+    <p class="standfirst">Three reference sheets for the progression every standard is built from. Each one takes a single chord — <strong>Dm7</strong>, <strong>G7</strong>, <strong>Cmaj7</strong> — and lays out what you can play instead of it, as guitar chord diagrams with the scale degrees printed inside the dots.</p>
+
+    <nav class="prog" aria-label="Jump to a sheet">
+      <a href="1iichordDm7substitutions.html"><span>Dm7</span><span class="deg">ii</span></a>
+      <a href="2VchordG7substitutions.html"><span>G7</span><span class="deg">V</span></a>
+      <a href="3IchordCmaj7strategies.html"><span>Cmaj7</span><span class="deg">I</span></a>
+    </nav>
+  </header>
+
+  <section class="purpose">
+    <p><b>Why the key of C.</b> Everything here transposes by sliding. No open strings are load-bearing in any grip, so the whole library moves up or down the neck as one piece — C to B♭ is the same shapes two frets lower.</p>
+    <p><b>Why scale degrees, not fingerings.</b> A dot marked ♭7 tells you what the note is doing. Once you can see that the same grip is a G7♯9 or a D♭13 depending only on the bass note, the substitution stops being a rule to memorise.</p>
+    <p><b>Two grips for everything.</b> A compact comping voicing for when a bass player has the root covered, and a full grip with the root in the bass for playing alone. Same chord, different job.</p>
+  </section>
+
+  <section class="sheets">
+    <div class="sheets-head">
+      <h2>The three sheets</h2>
+      <span class="count">98 diagrams · 36 substitutions</span>
+    </div>
+
+    <a class="sheet" href="1iichordDm7substitutions.html">
+      <div class="sheet-fig">
+        <svg width="140" height="147" viewBox="0 0 140 147" role="img" aria-label="Dm7 chord diagram, fifth position">
+          <g stroke="var(--grid)" stroke-width="1" stroke-opacity="0.55">
+            <line x1="30" y1="23" x2="130" y2="23"/><line x1="30" y1="47" x2="130" y2="47"/>
+            <line x1="30" y1="71" x2="130" y2="71"/><line x1="30" y1="95" x2="130" y2="95"/>
+            <line x1="30" y1="119" x2="130" y2="119"/><line x1="30" y1="143" x2="130" y2="143"/>
+          </g>
+          <g stroke="var(--grid)" stroke-opacity="0.7">
+            <line x1="30" y1="23" x2="30" y2="143" stroke-width="1.5"/>
+            <line x1="50" y1="23" x2="50" y2="143" stroke-width="1"/><line x1="70" y1="23" x2="70" y2="143" stroke-width="1"/>
+            <line x1="90" y1="23" x2="90" y2="143" stroke-width="1"/><line x1="110" y1="23" x2="110" y2="143" stroke-width="1"/>
+            <line x1="130" y1="23" x2="130" y2="143" stroke-width="1"/>
+          </g>
+          <text x="25" y="38.5" text-anchor="end" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="9.5">5fr</text>
+          <text x="30" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <text x="130" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <circle cx="50" cy="35" r="8.8" fill="var(--accent)"/>
+          <text x="50" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">R</text>
+          <circle cx="90" cy="35" r="8.8" fill="var(--grid)"/>
+          <text x="90" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="7.4" font-weight="600">♭7</text>
+          <circle cx="110" cy="59" r="8.8" fill="var(--grid)"/>
+          <text x="110" y="59" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="7.4" font-weight="600">♭3</text>
+          <circle cx="70" cy="83" r="8.8" fill="var(--grid)"/>
+          <text x="70" y="83" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">5</text>
+        </svg>
+        <p class="fig-name">Dm7</p>
+        <p class="fig-role">the ii chord</p>
+      </div>
+
+      <div class="sheet-body">
+        <p class="sheet-eyebrow">sheet one</p>
+        <h3>Twelve Ways Out of Dm7</h3>
+        <p>The ii chord is a place you pass through, so most of what works here is <b>addition rather than alteration</b> — stack thirds on top of D and every stop is still Dm7 with a taller extension. Past that: suspend it, borrow it from C minor, turn it into a dominant, or move the root a tritone away.</p>
+        <p>The payoff is seeing that A♭13 and D7♯9 are the <b>same grip</b>, told apart only by the bass note.</p>
+        <ul class="contents">
+          <li>upper structures</li><li>sus voicings</li><li>borrowed minor</li><li>altered dominants</li><li>tritone subs</li>
+        </ul>
+        <p class="go">Open sheet one <span class="arrow">→</span></p>
+      </div>
+    </a>
+
+    <a class="sheet" href="2VchordG7substitutions.html">
+      <div class="sheet-fig">
+        <svg width="140" height="147" viewBox="0 0 140 147" role="img" aria-label="G7 chord diagram, third position">
+          <g stroke="var(--grid)" stroke-width="1" stroke-opacity="0.55">
+            <line x1="30" y1="23" x2="130" y2="23"/><line x1="30" y1="47" x2="130" y2="47"/>
+            <line x1="30" y1="71" x2="130" y2="71"/><line x1="30" y1="95" x2="130" y2="95"/>
+            <line x1="30" y1="119" x2="130" y2="119"/><line x1="30" y1="143" x2="130" y2="143"/>
+          </g>
+          <g stroke="var(--grid)" stroke-opacity="0.7">
+            <line x1="30" y1="23" x2="30" y2="143" stroke-width="1.5"/>
+            <line x1="50" y1="23" x2="50" y2="143" stroke-width="1"/><line x1="70" y1="23" x2="70" y2="143" stroke-width="1"/>
+            <line x1="90" y1="23" x2="90" y2="143" stroke-width="1"/><line x1="110" y1="23" x2="110" y2="143" stroke-width="1"/>
+            <line x1="130" y1="23" x2="130" y2="143" stroke-width="1"/>
+          </g>
+          <text x="25" y="38.5" text-anchor="end" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="9.5">3fr</text>
+          <text x="50" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <text x="130" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <circle cx="30" cy="35" r="8.8" fill="var(--accent)"/>
+          <text x="30" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">R</text>
+          <circle cx="70" cy="35" r="8.8" fill="var(--grid)"/>
+          <text x="70" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="7.4" font-weight="600">♭7</text>
+          <circle cx="110" cy="35" r="8.8" fill="var(--grid)"/>
+          <text x="110" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">5</text>
+          <circle cx="90" cy="59" r="8.8" fill="var(--grid)"/>
+          <text x="90" y="59" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">3</text>
+        </svg>
+        <p class="fig-name">G7</p>
+        <p class="fig-role">the V chord</p>
+      </div>
+
+      <div class="sheet-body">
+        <p class="sheet-eyebrow">sheet two</p>
+        <h3>Twelve Ways Out of G7</h3>
+        <p>The V is the one chord in the progression where <b>almost anything is legal</b> — it is leaving anyway. Extend it, suspend the third, alter every note that is not a guide tone, move the root a tritone, or skip it entirely and reach the tonic through the back door.</p>
+        <p>B and F are the two notes that make it a G7. Everything else on the sheet is negotiable.</p>
+        <ul class="contents">
+          <li>13ths and ♭9s</li><li>sus and phrygian</li><li>the altered scale</li><li>D♭7 substitution</li><li>backdoor B♭7</li>
+        </ul>
+        <p class="go">Open sheet two <span class="arrow">→</span></p>
+      </div>
+    </a>
+
+    <a class="sheet" href="3IchordCmaj7strategies.html">
+      <div class="sheet-fig">
+        <svg width="140" height="147" viewBox="0 0 140 147" role="img" aria-label="Cmaj7 chord diagram, third position">
+          <g stroke="var(--grid)" stroke-width="1" stroke-opacity="0.55">
+            <line x1="30" y1="23" x2="130" y2="23"/><line x1="30" y1="47" x2="130" y2="47"/>
+            <line x1="30" y1="71" x2="130" y2="71"/><line x1="30" y1="95" x2="130" y2="95"/>
+            <line x1="30" y1="119" x2="130" y2="119"/><line x1="30" y1="143" x2="130" y2="143"/>
+          </g>
+          <g stroke="var(--grid)" stroke-opacity="0.7">
+            <line x1="30" y1="23" x2="30" y2="143" stroke-width="1.5"/>
+            <line x1="50" y1="23" x2="50" y2="143" stroke-width="1"/><line x1="70" y1="23" x2="70" y2="143" stroke-width="1"/>
+            <line x1="90" y1="23" x2="90" y2="143" stroke-width="1"/><line x1="110" y1="23" x2="110" y2="143" stroke-width="1"/>
+            <line x1="130" y1="23" x2="130" y2="143" stroke-width="1"/>
+          </g>
+          <text x="25" y="38.5" text-anchor="end" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="9.5">3fr</text>
+          <text x="30" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <text x="130" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <circle cx="50" cy="35" r="8.8" fill="var(--accent)"/>
+          <text x="50" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">R</text>
+          <circle cx="90" cy="59" r="8.8" fill="var(--grid)"/>
+          <text x="90" y="59" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">7</text>
+          <circle cx="70" cy="83" r="8.8" fill="var(--grid)"/>
+          <text x="70" y="83" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">5</text>
+          <circle cx="110" cy="83" r="8.8" fill="var(--grid)"/>
+          <text x="110" y="83" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">3</text>
+        </svg>
+        <p class="fig-name">Cmaj7</p>
+        <p class="fig-role">the I chord</p>
+      </div>
+
+      <div class="sheet-body">
+        <p class="sheet-eyebrow">sheet three · the long one</p>
+        <h3>Living on the I Chord</h3>
+        <p>The tonic is where a tune actually spends its time, and it is the one chord you <b>cannot fix by altering</b> — bend the wrong note and it stops being home. So this sheet is built in four parts, each answering a different question: what else can go in the bar, how to get a melody out of it, what to do with the rest of the time, and what to solo with.</p>
+        <p>The one to steal first: hold <b>x x 5 5 5 –</b> and walk your little finger down string 1. The chord changes underneath you by itself.</p>
+        <ul class="contents">
+          <li>substitutions</li><li>chord melody</li><li>turnarounds</li><li>vamp devices</li><li>pentatonics</li>
+        </ul>
+        <p class="go">Open sheet three <span class="arrow">→</span></p>
+      </div>
+    </a>
+  </section>
+
+  <section class="coda">
+    <h2>How to use these</h2>
+    <p>Read a sheet top to bottom once, then stop. Take <strong>one</strong> substitution into a tune you already play and use only that one for a week. The sheets are built as reference, not as a curriculum — the ordering by distance from the original chord is there so you can tell how far you are stepping out before you step.</p>
+    <p>Every grip is checked note by note against the fretboard: each printed scale degree matches the pitch that string actually sounds, and no voicing spans more than four frets.</p>
+    <p class="tuning">Standard tuning · E A D G B E · low string at left · <a href="https://github.com/rbndchsn/jazz_guitar_tutorial">github.com/rbndchsn/jazz_guitar_tutorial</a></p>
+  </section>
+
+</div>
+
+</body>
+</html>
