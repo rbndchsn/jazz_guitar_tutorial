@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "serve",
+      "type": "shell",
+      "command": "python -m http.server 8080",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Serve the site at http://localhost:8080"
+    },
+    {
+      "label": "check",
+      "type": "shell",
+      "command": "python tools/check.py",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": [],
+      "detail": "Links, mount points, tags, menu, JS syntax"
+    },
+    {
+      "label": "new sheet",
+      "type": "shell",
+      "command": "python tools/new_sheet.py ${input:slug} \"${input:title}\"",
+      "problemMatcher": [],
+      "detail": "Scaffold a page, its data file, and its menu entry"
+    }
+  ],
+  "inputs": [
+    { "id": "slug", "type": "promptString", "description": "File name without extension, e.g. 5rhythmchanges" },
+    { "id": "title", "type": "promptString", "description": "Page title, e.g. Rhythm Changes" }
+  ]
+}

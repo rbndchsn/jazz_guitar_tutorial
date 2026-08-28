@@ -1,0 +1,13 @@
+{
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "[python]": { "editor.tabSize": 4 },
+  "files.exclude": { "**/__pycache__": true },
+  "search.exclude": { "_template": false },
+  "html.format.wrapLineLength": 0,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.donotShowInfoMsg": true
+}

@@ -4,33 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Not found — Getting Out of ii–V–I</title>
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/tokens.css">
-<link rel="stylesheet" href="assets/index.css">
+<link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/sitebar.css">
 <link rel="stylesheet" href="assets/sitefooter.css">
 </head>
 <body>
+
 <div class="wrap">
+
   <header class="masthead">
-    <p class="eyebrow">404 · no such page</p>
-    <h1>That page is <em>not on the neck</em></h1>
-    <p class="standfirst">The address you followed does not exist here. The four sheets are listed below, or use the menu in the bar above.</p>
+    <p class="eyebrow">{{EYEBROW}}</p>
+    <h1>{{HEADING}}</h1>
+    <p class="standfirst">{{STANDFIRST}}</p>
+
+    <div class="legend">
+      <span class="legend-item"><span class="swatch root">R</span> root of the chord</span>
+      <span class="legend-item"><span class="swatch tone">♭7</span> degree above that root</span>
+      <span class="legend-item"><span class="swatch mute">×</span> string muted</span>
+      <span class="legend-item"><span class="pitches">5fr</span> starting fret</span>
+    </div>
   </header>
 
+  <!-- data/{{SLUG}}.js renders into this -->
+  <main id="bands"></main>
+
   <section class="coda">
-    <h2>The sheets</h2>
-    <p><a href="1iichordDm7substitutions.html">Twelve Ways Out of Dm7</a> — the ii chord.</p>
-    <p><a href="2VchordG7substitutions.html">Twelve Ways Out of G7</a> — the V chord.</p>
-    <p><a href="3IchordCmaj7strategies.html">Living on the I Chord</a> — the tonic.</p>
-    <p><a href="4threearrangements.html">Three Arrangements; Examples</a> — the sheets put to work.</p>
+    <h2>How to use this sheet</h2>
+    <p>{{CODA}}</p>
     <p class="tuning">Standard tuning · E A D G B E · low string at left</p>
   </section>
+
 </div>
+
 <script src="assets/sitebar.js"></script>
 <script src="assets/sitefooter.js"></script>
+<script src="assets/fretboard.js"></script>
+<script src="assets/layout.js"></script>
+<script src="data/{{SLUG}}.js"></script>
 </body>
 </html>

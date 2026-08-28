@@ -1,0 +1,60 @@
+/* design tokens - the single source of colour for every page */
+
+:root {
+  --ground: #E7E5DF;
+  --surface: #F4F3EE;
+  --surface-2: #DEDBD3;
+  --ink: #1A1714;
+  --ink-soft: #5E574E;
+  --ink-faint: #8C8479;
+  --rule: #C9C5BA;
+  --accent: #7C2F2A;
+  --accent-tint: #7C2F2A18;
+  --nickel: #2C5A61;
+  --brass: #8A6418;
+  --dot-ink: #F4F3EE;
+  --grid: #6F675C;
+  --nut: #1A1714;
+  --shadow: 0 1px 0 #FFFFFF80, 0 2px 14px -8px #1A171433;
+  --accent-wash: #7C2F2A0F;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #131210;
+    --surface: #1D1B18;
+    --surface-2: #262320;
+    --ink: #EDEAE3;
+    --ink-soft: #A79E92;
+    --ink-faint: #7A7267;
+    --rule: #35312B;
+    --accent: #DD8078;
+    --accent-tint: #DD807820;
+    --nickel: #79B7BD;
+    --brass: #D2A244;
+    --dot-ink: #131210;
+    --grid: #6A6156;
+    --nut: #B9B0A2;
+    --shadow: 0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+    --accent-wash: #DD807818;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #131210;
+  --surface: #1D1B18;
+  --surface-2: #262320;
+  --ink: #EDEAE3;
+  --ink-soft: #A79E92;
+  --ink-faint: #7A7267;
+  --rule: #35312B;
+  --accent: #DD8078;
+  --accent-tint: #DD807820;
+  --nickel: #79B7BD;
+  --brass: #D2A244;
+  --dot-ink: #131210;
+  --grid: #6A6156;
+  --nut: #B9B0A2;
+  --shadow: 0 1px 0 #FFFFFF08, 0 2px 16px -10px #000000;
+  --accent-wash: #DD807818;
+}

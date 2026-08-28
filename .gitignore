@@ -5,5 +5,6 @@ archive/
 # OS and editor cruft
 .DS_Store
 Thumbs.db
-.vscode/
 *.swp
+__pycache__/
+*.pyc

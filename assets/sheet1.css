@@ -1,0 +1,52 @@
+/* sheet 1 - rules that differ from or extend the shared base */
+
+.band-head h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: "opsz" 60;
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  margin: 0;
+}
+
+.chord-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.grip-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.pitches {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.coda {
+  border-top: 2px solid var(--ink);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 480px) {
+  .masthead { padding-top: 48px; }
+  .card { padding: 18px 16px 16px; }
+  .grips { gap: 10px 12px; }
+}
