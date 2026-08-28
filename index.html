@@ -109,8 +109,13 @@
 
   /* ---------- progression strip ---------- */
 
+  .prog-row {
+    display: flex; flex-wrap: wrap; align-items: stretch;
+    gap: 14px; align-self: flex-start;
+  }
+
   .prog {
-    display: flex; align-items: stretch; align-self: flex-start;
+    display: flex; align-items: stretch;
     border: 1px solid var(--ink-faint); border-radius: 2px;
     overflow: hidden; background: var(--surface);
     box-shadow: var(--shadow);
@@ -267,8 +272,8 @@
     .masthead { padding-top: 52px; }
     .sheet { grid-template-columns: 1fr; padding: 20px 18px 18px; }
     .sheet-fig { align-items: flex-start; }
-    .prog { align-self: stretch; }
-    .prog a { flex: 1; min-width: 0; padding: 12px 9px; align-items: center; font-size: 13.5px; }
+    .prog-row { flex-direction: column; align-self: stretch; }
+    .prog a { flex: 1; padding: 12px 14px; align-items: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -406,11 +411,15 @@
     <h1>Getting Out of <em>ii–V–I</em></h1>
     <p class="standfirst">Reference sheets for the progression every standard is built from. Three of them take a single chord — <strong>Dm7</strong>, <strong>G7</strong>, <strong>Cmaj7</strong> — and lay out what you can play instead of it, as guitar chord diagrams with the scale degrees printed inside the dots. The fourth puts the whole library to work on <strong>one twelve-bar vamp</strong>, arranged three ways.</p>
 
-    <nav class="prog" aria-label="Jump to a sheet">
-      <a href="1iichordDm7substitutions.html"><span>Dm7</span><span class="deg">ii</span></a>
-      <a href="2VchordG7substitutions.html"><span>G7</span><span class="deg">V</span></a>
-      <a href="3IchordCmaj7strategies.html"><span>Cmaj7</span><span class="deg">I</span></a>
-      <a href="4threearrangements.html"><span>Vamp</span><span class="deg">I–IV</span></a>
+    <nav class="prog-row" aria-label="Jump to a sheet">
+      <span class="prog">
+        <a href="1iichordDm7substitutions.html"><span>Dm7</span><span class="deg">ii</span></a>
+        <a href="2VchordG7substitutions.html"><span>G7</span><span class="deg">V</span></a>
+        <a href="3IchordCmaj7strategies.html"><span>Cmaj7</span><span class="deg">I</span></a>
+      </span>
+      <span class="prog">
+        <a href="4threearrangements.html"><span>3 Arrangements</span><span class="deg">one vamp</span></a>
+      </span>
     </nav>
   </header>
 
