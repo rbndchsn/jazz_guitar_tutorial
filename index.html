@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>Getting Out of ii–V–I</title>
-<meta name="description" content="A guitar reference for substituting every chord in a ii–V–I, worked in the key of C major. Three sheets, ninety-eight chord diagrams.">
+<meta name="description" content="A guitar reference for substituting every chord in a ii–V–I, worked in the key of C major. Four sheets, one hundred and forty chord diagrams.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -268,7 +268,7 @@
     .sheet { grid-template-columns: 1fr; padding: 20px 18px 18px; }
     .sheet-fig { align-items: flex-start; }
     .prog { align-self: stretch; }
-    .prog a { flex: 1; padding: 12px 14px; align-items: center; }
+    .prog a { flex: 1; min-width: 0; padding: 12px 9px; align-items: center; font-size: 13.5px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -375,6 +375,7 @@
     <a href="1iichordDm7substitutions.html">Dm7 substitutions <span class="sitebar-deg">ii</span></a>
     <a href="2VchordG7substitutions.html">G7 substitutions <span class="sitebar-deg">V</span></a>
     <a href="3IchordCmaj7strategies.html">Cmaj7 strategies <span class="sitebar-deg">I</span></a>
+    <a href="4threearrangements.html">Three arrangements <span class="sitebar-deg">vamp</span></a>
   </nav>
 </header>
 <script>
@@ -403,12 +404,13 @@
   <header class="masthead">
     <p class="eyebrow">jazz guitar · worked in the key of C</p>
     <h1>Getting Out of <em>ii–V–I</em></h1>
-    <p class="standfirst">Three reference sheets for the progression every standard is built from. Each one takes a single chord — <strong>Dm7</strong>, <strong>G7</strong>, <strong>Cmaj7</strong> — and lays out what you can play instead of it, as guitar chord diagrams with the scale degrees printed inside the dots.</p>
+    <p class="standfirst">Reference sheets for the progression every standard is built from. Three of them take a single chord — <strong>Dm7</strong>, <strong>G7</strong>, <strong>Cmaj7</strong> — and lay out what you can play instead of it, as guitar chord diagrams with the scale degrees printed inside the dots. The fourth puts the whole library to work on <strong>one twelve-bar vamp</strong>, arranged three ways.</p>
 
     <nav class="prog" aria-label="Jump to a sheet">
       <a href="1iichordDm7substitutions.html"><span>Dm7</span><span class="deg">ii</span></a>
       <a href="2VchordG7substitutions.html"><span>G7</span><span class="deg">V</span></a>
       <a href="3IchordCmaj7strategies.html"><span>Cmaj7</span><span class="deg">I</span></a>
+      <a href="4threearrangements.html"><span>Vamp</span><span class="deg">I–IV</span></a>
     </nav>
   </header>
 
@@ -420,8 +422,8 @@
 
   <section class="sheets">
     <div class="sheets-head">
-      <h2>The three sheets</h2>
-      <span class="count">98 diagrams · 36 substitutions</span>
+      <h2>The sheets</h2>
+      <span class="count">140 diagrams · four sheets</span>
     </div>
 
     <a class="sheet" href="1iichordDm7substitutions.html">
@@ -539,7 +541,7 @@
       </div>
 
       <div class="sheet-body">
-        <p class="sheet-eyebrow">sheet three · the long one</p>
+        <p class="sheet-eyebrow">sheet three · the library</p>
         <h3>Living on the I Chord</h3>
         <p>The tonic is where a tune actually spends its time, and it is the one chord you <b>cannot fix by altering</b> — bend the wrong note and it stops being home. So this sheet is built in four parts, each answering a different question: what else can go in the bar, how to get a melody out of it, what to do with the rest of the time, and what to solo with.</p>
         <p>The one to steal first: hold <b>x x 5 5 5 –</b> and walk your little finger down string 1. The chord changes underneath you by itself.</p>
@@ -549,13 +551,56 @@
         <p class="go">Open sheet three <span class="arrow">→</span></p>
       </div>
     </a>
+
+    <a class="sheet" href="4threearrangements.html">
+      <div class="sheet-fig">
+        <svg width="140" height="147" viewBox="0 0 140 147" role="img" aria-label="Fmaj7 chord diagram, first position">
+          <g stroke="var(--grid)" stroke-width="1" stroke-opacity="0.55">
+            <line x1="30" y1="23" x2="130" y2="23"/><line x1="30" y1="47" x2="130" y2="47"/>
+            <line x1="30" y1="71" x2="130" y2="71"/><line x1="30" y1="95" x2="130" y2="95"/>
+            <line x1="30" y1="119" x2="130" y2="119"/><line x1="30" y1="143" x2="130" y2="143"/>
+          </g>
+          <g stroke="var(--grid)" stroke-opacity="0.7">
+            <line x1="30" y1="23" x2="30" y2="143" stroke-width="1.5"/>
+            <line x1="50" y1="23" x2="50" y2="143" stroke-width="1"/><line x1="70" y1="23" x2="70" y2="143" stroke-width="1"/>
+            <line x1="90" y1="23" x2="90" y2="143" stroke-width="1"/><line x1="110" y1="23" x2="110" y2="143" stroke-width="1"/>
+            <line x1="130" y1="23" x2="130" y2="143" stroke-width="1"/>
+          </g>
+          <line x1="29.5" y1="23" x2="130.5" y2="23" stroke="var(--nut)" stroke-width="4" stroke-linecap="square"/>
+          <text x="50" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <text x="130" y="16" text-anchor="middle" fill="var(--ink-faint)" font-family="'IBM Plex Mono', monospace" font-size="12">×</text>
+          <circle cx="30" cy="35" r="8.8" fill="var(--accent)"/>
+          <text x="30" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">R</text>
+          <circle cx="110" cy="35" r="8.8" fill="var(--grid)"/>
+          <text x="110" y="35" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">5</text>
+          <circle cx="70" cy="59" r="8.8" fill="var(--grid)"/>
+          <text x="70" y="59" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">7</text>
+          <circle cx="90" cy="59" r="8.8" fill="var(--grid)"/>
+          <text x="90" y="59" text-anchor="middle" dominant-baseline="central" fill="var(--dot-ink)" font-family="'IBM Plex Mono', monospace" font-size="8.4" font-weight="600">3</text>
+        </svg>
+        <p class="fig-name">Fmaj7</p>
+        <p class="fig-role">the IV chord</p>
+      </div>
+
+      <div class="sheet-body">
+        <p class="sheet-eyebrow">sheet four · putting it to work</p>
+        <h3>Three Arrangements of One Vamp</h3>
+        <p>The first three sheets are libraries. This one is a worked example: a single twelve-bar progression rocking between <b>Cmaj7 and Fmaj7</b>, arranged three ways — a melody on the top string, then a borrowed minor iv, then a chromatic turnaround that walks the hand down the neck.</p>
+        <p>Every bar is diagrammed with its melody note, so you can see the <b>line</b> as well as the chords.</p>
+        <ul class="contents">
+          <li>lead sheets</li><li>melody on top</li><li>minor iv</li><li>chromatic turnaround</li><li>bar by bar</li>
+        </ul>
+        <p class="go">Open sheet four <span class="arrow">→</span></p>
+      </div>
+    </a>
   </section>
 
   <section class="coda">
     <h2>How to use these</h2>
     <p>Read a sheet top to bottom once, then stop. Take <strong>one</strong> substitution into a tune you already play and use only that one for a week. The sheets are built as reference, not as a curriculum — the ordering by distance from the original chord is there so you can tell how far you are stepping out before you step.</p>
     <p>Every grip is checked note by note against the fretboard: each printed scale degree matches the pitch that string actually sounds, and no voicing spans more than four frets.</p>
-    <p class="tuning">Standard tuning · E A D G B E · low string at left · <a href="https://github.com/rbndchsn/jazz_guitar_tutorial">github.com/rbndchsn/jazz_guitar_tutorial</a></p>
+    <p>Sheet four is the other way round — it is not a library to browse but a single vamp played through three times, each pass changing one thing. If the first three sheets leave you with more options than ideas, start there instead.</p>
+    <p class="tuning">Standard tuning · E A D G B E · low string at left · four sheets · <a href="https://github.com/rbndchsn/jazz_guitar_tutorial">github.com/rbndchsn/jazz_guitar_tutorial</a></p>
   </section>
 
 </div>
