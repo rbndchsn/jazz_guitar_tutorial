@@ -549,18 +549,6 @@
     </div>
   </header>
 
-  <section class="section">
-    <div class="part">
-      <p class="part-q">Where we started</p>
-      <h2 class="part-title">The original</h2>
-      <p class="part-sum">Ten bars. Nothing wrong with the chords — but the first <b>G7</b> never resolves (it goes to Em7), so the tension is built twice and discharged once. And every bar is a block on a downbeat, which is where the blandness actually lives.</p>
-    </div>
-    <div class="panel">
-      <div class="chart" id="orig"></div>
-      <p>Three things are fixed below, in order of how much they change the sound: give it a melody, land the first cadence, then colour the harmony. Bars marked in red are what moved.</p>
-    </div>
-  </section>
-
   <main id="versions"></main>
 
   <section class="coda">
@@ -575,9 +563,6 @@
 <script>
 (function () {
   "use strict";
-
-  var ORIGINAL = [["Cmaj7"],["Fmaj7"],["Cmaj7"],["Fmaj7"],["Cmaj7"],["Fmaj7"],["Dm7","G7"],
-                  ["Em7","A7"],["Dm7","G7"],["Cmaj7"]];
 
   var VERSIONS = [
     {
@@ -816,8 +801,6 @@
   }
 
   /* ---------- render ---------- */
-
-  document.getElementById("orig").replaceWith(chart(ORIGINAL));
 
   var root = document.getElementById("versions");
 
